@@ -74,8 +74,8 @@ public class ShiroConfig {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(shiroRealm());
         securityManager.setRememberMeManager(rememberMeManager());
-        securityManager.setCacheManager(cacheManager());
-        //securityManager.setSessionManager(sessionManager());
+        //securityManager.setCacheManager(cacheManager());
+        securityManager.setSessionManager(sessionManager());
         return securityManager;
     }
 
@@ -127,11 +127,11 @@ public class ShiroConfig {
         return redisManager;
     }
 
-    public RedisCacheManager cacheManager(){
-        RedisCacheManager redisCacheManager = new RedisCacheManager();
-        redisCacheManager.setRedisManager(redisManager());
-        return redisCacheManager;
-    }
+//    public RedisCacheManager cacheManager(){
+//        RedisCacheManager redisCacheManager = new RedisCacheManager();
+//        redisCacheManager.setRedisManager(redisManager());
+//        return redisCacheManager;
+//    }
 
     @Bean
     public SessionManager sessionManager(){

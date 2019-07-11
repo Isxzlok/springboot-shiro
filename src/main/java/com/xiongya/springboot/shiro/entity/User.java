@@ -1,8 +1,6 @@
 package com.xiongya.springboot.shiro.entity;
 
 import lombok.Data;
-
-import javax.annotation.sql.DataSourceDefinition;
 import java.io.Serializable;
 import java.util.Date;
 

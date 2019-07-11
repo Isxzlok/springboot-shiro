@@ -12,32 +12,35 @@
     <div class="form">
         <input type="text" placeholder="用户名" name="username" required="required"/>
         <input type="password" placeholder="密码" name="password" required="required"/>
+        <p><input type="checkbox" name="rememberMe"/>记住我</p>
         <button onclick="login()">登录</button>
     </div>
 </div>
 
 </body>
 <script th:inline="javascript">
-    //var ctx = [[@{/}]];
+    var ctx = [[@{/}]];
 
         function login() {
+            //alert("sssss");
             var username = $("input[name='username']").val();
             var password = $("input[name='password']").val();
+            var remerberMe = $("input[name='rememberMe']").is(':checked');
             $.ajax({
                 type: "post",
-                url: "/login",
-                data: {"username":username, "password": password},
+                url: ctx + "login",
+                data: {"username":username, "password": password, "rememberMe": remerberMe},
                 dataType: "json",
                 success: function(r){
                     if (r.code == 0){
-                        location.href = '/index';
+                        alert(ctx);
+                        location.href = ctx + 'index';
                     }else{
                         alert(r.msg);
                     }
                 }
             });
         }
-
 
 
 
