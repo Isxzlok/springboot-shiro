@@ -48,6 +48,7 @@ public class LoginController {
 
     @RequestMapping("/")
     public String redirectIndex(){
+
         return "redirect:/index";
     }
 
